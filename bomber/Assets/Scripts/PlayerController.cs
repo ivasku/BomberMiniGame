@@ -16,11 +16,18 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+#if UNITY_STANDALONE_WIN 
+        int width = 480; 
+        int height = 800; 
+        bool isFullScreen = false; 
+        int desiredFPS = 60;
+
+        Screen.SetResolution(width, height, isFullScreen, desiredFPS);
+#endif
+    }
+
+    // Update is called once per frame
+    void Update () {
         Move();
 	}
 
@@ -29,7 +36,7 @@ public class PlayerController : MonoBehaviour {
         float h = Input.GetAxis("Horizontal");        
         Vector2 tempPosition = this.gameObject.transform.position;
 
-#if UNITY_ANDROID && !UNITY_EDITOR
+#if UNITY_ANDROID || UNITY_IOS && !UNITY_EDITOR
         if (Input.GetMouseButton(0) && Input.mousePosition.x > Screen.width / 2) {
             tempPosition.x += speed * Time.deltaTime;     
         }

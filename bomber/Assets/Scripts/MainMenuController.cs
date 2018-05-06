@@ -10,6 +10,15 @@ public class MainMenuController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+#if UNITY_STANDALONE_WIN
+        int width = 480;
+        int height = 800;
+        bool isFullScreen = false;
+        int desiredFPS = 60;
+
+        Screen.SetResolution(width, height, isFullScreen, desiredFPS);
+#endif
+
         GetScore();
     }
 
