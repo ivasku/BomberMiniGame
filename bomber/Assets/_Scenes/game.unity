@@ -675,7 +675,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1650557440
 RectTransform:
   m_ObjectHideFlags: 0
@@ -852,6 +852,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114064316045498274, guid: 86324e4b9a6206342994ba98f8c6a9b0,
+        type: 2}
+      propertyPath: applePrefab
+      value: 
+      objectReference: {fileID: 1672594860857272, guid: 664450bc72c79694eb7f6a3c363214e3,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86324e4b9a6206342994ba98f8c6a9b0, type: 2}
   m_IsPrefabParent: 0

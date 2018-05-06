@@ -75,6 +75,15 @@ public class PlayerController : MonoBehaviour {
         if (other.gameObject.tag.Equals("Bomb")) {
             EndGame();
         }
+
+        if (other.gameObject.tag.Equals("Apple"))
+        {           
+            DestroyBombsObject.GetComponent<DestroyBombs>().score += 10;
+            DestroyBombsObject.GetComponent<DestroyBombs>().updateHighScore();
+
+            other.gameObject.SetActive(false);
+            Destroy(other.gameObject, 0.2f);
+        }
     }
 
     private void EndGame()
@@ -87,5 +96,7 @@ public class PlayerController : MonoBehaviour {
         float scoreCurrent = PlayerPrefs.GetFloat("score");
         HighScore.text = "HighScore: " + ((int)scoreCurrent).ToString();
     }
-   
+
+    
+
 }

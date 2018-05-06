@@ -13,11 +13,7 @@ public class DestroyBombs : MonoBehaviour {
     {
         score++;
         scoreText.text = "Score: " + score;
-
-        if (PlayerPrefs.GetFloat("score") < score)
-        {
-            PlayerPrefs.SetFloat("score", score);
-        }
+        updateHighScore();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -27,6 +23,14 @@ public class DestroyBombs : MonoBehaviour {
             other.gameObject.SetActive(false);
             Destroy(other.gameObject, 0.2f);
             Score();
+        }   
+    }
+
+    public void updateHighScore()
+    {
+        if (PlayerPrefs.GetFloat("score") < score)
+        {
+            PlayerPrefs.SetFloat("score", score);
         }
     }
 }
